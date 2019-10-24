@@ -9,6 +9,7 @@ var login = require('./controllers/login');
 //var user = require('./controllers/user');
 //var logout = require('./controllers/logout');
 var registration = require('./controllers/registration');
+var adminpanel = require('./controllers/adminpanel');
 var app = express();
 
 
@@ -19,15 +20,27 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(expSession({secret:'my top secret value', saveUninitialized:true, resave: false}));
 app.use(cookieParser());
-
+//app.use('/abc', express.static('xyz'))
 app.use('/login', login);
+//app.use('/home', home);
+//app.use('/user', user);
+//app.use('/logout', logout);
 app.use('/registration', registration);
+app.use('/adminpanel', adminpanel);
 
 
 //ROUTER
 app.get('/', function(request, response){
 	response.send('welcome to index !');
 });
+
+// app.get('/test/your/:name/:id', function(request, response){
+// 	var id = request.params.id;
+// 	var name = request.params.name;
+// 	response.send(id+" "+name);
+
+// });
+
 
 //SERVER STARTUP
 app.listen(3000, function(){

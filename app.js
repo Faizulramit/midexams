@@ -34,12 +34,6 @@ app.get('/', function(request, response){
 	response.send('welcome to index !');
 });
 
-// app.get('/test/your/:name/:id', function(request, response){
-// 	var id = request.params.id;
-// 	var name = request.params.name;
-// 	response.send(id+" "+name);
-
-// });
 
 
 //SERVER STARTUP
